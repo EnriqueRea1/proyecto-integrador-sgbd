@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+
+body {
+    font-family: "Jost", sans-serif;
+    background-image: url('/imagenes/fondo.jpg');
+    color: #4d4d4d; 
+    position: relative;
+    min-height: 100vh;
+}
+
+p{
+    color:whitesmoke;
+    text-shadow: wheat;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    color: whitesmoke;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+h2 {
+    color:#ffffff;
+}
+
+h4{
+    color:whitesmoke;
+}
+
+#aggTabla, .modTabla, .modTabla1 {
+    padding: 2rem;
+    background-color: #5f5f5f;
+    border-radius: 12px; /* Más redondeado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1.5rem auto; /* Centrando con margen automático */
+    max-width: 90%; /* No ocupar toda la pantalla */
+    width: 600px; /* Ajuste de ancho */
+}
+
+form {
+
+    border-radius: 12px; /* Más redondeado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    margin: 1.5rem auto; /* Centrando con margen automático */
+    max-width: 90%; /* No ocupar toda la pantalla */
+    width: 600px; /* Ajuste de ancho */
+    padding:20px;
+}
+
+
+label {
+    color: whitesmoke; 
+    font-weight:bold;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 18px;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 2px solid #4d4d4d; 
+    border-radius: 8px; /* Más redondeado */
+    background-color: #ffffff; 
+    color: #4d4d4d; 
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: #680091; /* Rojo claro */
+    box-shadow: 0 0 10px rgba(25, 0, 252, 0.5); /* Rojo más claro */
+    outline: none;
+}
+
+input[type="password"]:focus,
+select:focus {
+    border-color: #7e0eaa; /* Rojo claro */
+    box-shadow: 0 0 10px rgba(97, 107, 255, 0.5); /* Rojo más claro */
+    outline: none;
+    height: 30%;
+}
+
+button[type="submit"],
+button[type="button"] {
+    background-color: #a32525; /* Rojo claro */
+    color: whitesmoke; 
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px; /* Más redondeado */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 12px;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+    background-color: #ffffff; 
+    color: rgb(44, 44, 44);
+}
+
+button:disabled {
+    background-color: #ccc; 
+    cursor: not-allowed;
+}
+
+.action-buttons {
+
+    justify-content: space-between; /* Distribuye los botones en las dos mitades */
+}
+
+/* Formulario de acción dentro de los botones */
+.action-form {
+    margin: 0; /* Elimina el margen de los formularios */
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background: #ffffff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #6d6b6b;
+    padding: 8px;
+    text-align: center;
+    color: #2b2b2b;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+th {
+    background-color: #8d0e0e;
+    color: #fff; 
+    font-weight: bold;
+}
+
+input:invalid {
+    border-color: #350000; /* Rojo oscuro */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Rojo oscuro */
+}
+
+input:valid {
+    border-color: #a1e573; /* Rojo claro */
+    box-shadow: 0 0 10px rgba(147, 255, 97, 0.5); /* Rojo más claro */
+}
+
+.actions {
+    display: flex;
+    justify-content: start;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+#nuevaBD {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+}
+
+#campos .campo {
+    display: flex;
+    align-items: center;
+}
+
+#campos .campo label {
+    flex: 1;
+}
+
+#campos .campo input[type="text"],
+#campos .campo select {
+    flex: 2;
+}
+
+#campos .campo input[type="checkbox"] {
+    flex: none;
+}
+
+
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-group label {
+    width: 150px; /* Adjust this width as needed */
+    font-weight: bold;
+    padding-left: 5%;
+    margin-top: 3%;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100%;
+    margin-right: 5%;
+    margin-top: 3%;
+}
+
+.input-container i {
+    margin-right: 8px;
+    color: #888;
+    padding-bottom: 10%;
+}
+
+.logout-button {
+    display: flex; /* Hace que el enlace se comporte como un botón */
+    padding: 10px 20px; /* Añade relleno dentro del botón */
+    font-size: 16px; /* Tamaño de fuente */
+    background-color: #a32525; /* Rojo claro */
+    color: whitesmoke; 
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Centra el texto dentro del botón */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.3s; /* Añade transiciones suaves */
+    justify-content: center;
+}
+
+.logout-button:hover {
+    background-color: #fdfdfd; /* Rojo más oscuro al pasar el ratón */
+    color: #2b2b2b;
+}
+
+.logout-button:active {
+    background-color: #bd2130; /* Rojo aún más oscuro cuando se hace clic */
+}
+
+.back-button {
+    display: inline-block; /* Hace que el enlace se comporte como un botón */
+    padding: 10px 20px; /* Añade relleno dentro del botón */
+    font-size: 16px; /* Tamaño de fuente */
+    background-color: #a32525; /* Rojo claro */
+    color: whitesmoke; 
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Centra el texto dentro del botón */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.3s; /* Añade transiciones suaves */
+    justify-content: center;
+    margin-left: 10%;
+}
+
+.back-button:hover {
+    background-color: #fdfdfd; /* Rojo más oscuro al pasar el ratón */
+    color: #2b2b2b;
+}
+
+.back-button:active {
+    background-color: #bd2130; /* Rojo aún más oscuro cuando se hace clic */
+}

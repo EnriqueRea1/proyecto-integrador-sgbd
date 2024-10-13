@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contenido de la Tabla: <%= tableName %> en <%= dbName %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/imagenes/db.ico">
+</head>
+<body>
+  <main>
+    <h1>Contenido de la Tabla: <%= tableName %> en <%= dbName %></h1>
+    <a href="/ver-db?dbName=<%= dbName %>" class="back-button">Volver a Tablas</a>
+    <table>
+      <thead>
+        <tr>
+          <% Object.keys(rows[0] || {}).forEach(column => { %>
+            <th><%= column %></th>
+          <% }) %>
+          <% if (user && user.rol === 'admin') { %>
+            <th>Operaciones</th>
+          <% } %>
+        </tr>
+      </thead>
+      <tbody>
+        <% rows.forEach(row => { %>
+          <tr>
+            <% Object.values(row).forEach(value => { %>
+              <td><%= value %></td>
+            <% }) %>
+            <% if (user && user.rol === 'admin') { %>
+              <td class="actions">
+                <div class="container">
+                  <form action="/editar-registro" method="GET" style="display:inline;">
+                    <input type="hidden" name="dbName" value="<%= dbName %>">
+                    <input type="hidden" name="tableName" value="<%= tableName %>">
+                    <input type="hidden" name="id" value="<%= row.id %>">
+                    <button type="submit">Editar</button>
+                  </form>
+                  <form action="/eliminar-registro" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este registro?');" style="display:inline;">
+                    <input type="hidden" name="dbName" value="<%= dbName %>">
+                    <input type="hidden" name="tableName" value="<%= tableName %>">
+                    <input type="hidden" name="id" value="<%= row.id %>">
+                    <button type="submit">Eliminar</button>
+                  </form>
+                </div>
+              </td>
+            <% } %>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+      <form action="/agregar-datos" method="GET" id="aggUsuario1" style="display:inline;">
+        <input type="hidden" name="dbName" value="<%= dbName %>">
+        <input type="hidden" name="tableName" value="<%= tableName %>">
+        <button type="submit">Agregar dato</button>
+      </form>
+  </main>
+</body>
+</html>

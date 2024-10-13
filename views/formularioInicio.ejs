@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Conexión a la Base de Datos</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="/imagenes/db.ico">
+</head>
+<body>
+  <main>
+    <h1>Ingresa tus datos de conexión</h1>
+    <form action="/configurar-db" method="POST" id="configurarDB">
+      <div class="input-group">
+        <label for="dbHost"><i class="fas fa-server"></i> Host</label>
+        <div class="input-container">
+          <input type="text" id="dbHost" name="dbHost" required>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="dbUser"><i class="fas fa-user"></i> Usuario</label>
+        <div class="input-container">    
+          <input type="text" id="dbUser" name="dbUser" required>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="dbPassword"><i class="fas fa-lock"></i> Contraseña</label>
+        <div class="input-container">          
+          <input type="password" id="dbPassword" name="dbPassword" required>
+        </div>
+      </div>
+      <button type="submit">Ingresa a la Base de Datos</button>
+    </form>
+  </main>
+</body>
+</html>

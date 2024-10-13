@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesion</title>
+    <link rel="stylesheet" href="/css/sesion.css">
+    <link rel="icon" href="/imagenes/db.ico">
+</head>
+<body>
+    <% if (success_msg) { %>
+        <div class="alert alert-success">
+            <%= success_msg %>
+        </div>
+    <% } %>
+
+    <% if (error_msg) { %>
+        <div class="alert alert-danger">
+            <%= error_msg %>
+        </div>
+    <% } %>
+    <div class="container">
+        <div class="container-form">
+            <!-- Formulario de Inicio de Sesión -->
+            <form class="sign-in" action="/login" method="POST">
+                <h2>Iniciar Sesión</h2>
+                <span>Use su correo y contraseña</span>
+                <div class="container-input">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="text" name="email" placeholder="Ingresa tu Email" required>
+                </div>
+                <div class="container-input">
+                    <i class="fa-duotone fa-solid fa-lock"></i>
+                    <input type="password" name="password" placeholder="Ingresa tu Contraseña" required>
+                </div>
+                <button class="button" type="submit">ACCEDER</button>
+            </form>
+        </div>
+
+        <div class="container-form">
+            <form class="sign-up" action="/register" method="POST">
+                <h2>Registrarse</h2>
+                <span>Use su correo electrónico para registrarse</span>
+                <div class="container-input">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
+                </div>
+                <div class="container-input">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="text" name="email" placeholder="Ingresa tu email" required>
+                </div>
+                <div class="container-input">
+                    <i class="fa-duotone fa-solid fa-lock"></i>
+                    <input type="password" name="password" placeholder="Ingresa una contraseña" required>
+                </div>
+                <button class="button" type="submit">CREAR CUENTA</button>
+            </form>
+        </div>
+
+        <div class="container-welcome">
+            <div class="welcome-sign-up welcome">
+                <h3>¿No tienes cuenta?</h3>
+                <p>Registrate para acceder</p>
+                <button class="button" id="btn-sign-up">Registrarse</button>
+            </div>
+            <div class="welcome-sign-in welcome">
+                <h3>Ya casi...</h3>
+                <p>Al momento de registrarte tendrás acceso de usuario a los servicios proporcionados</p>
+                <button class="button" id="btn-sign-in">Iniciar Sesión</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/js/sesion.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+</body>
+</html>

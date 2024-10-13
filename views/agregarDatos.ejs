@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agregar Datos a la Tabla: <%= tableName %> en <%= dbName %></title>
+  <link rel="icon" href="/imagenes/db.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main>
+  <h1>Agregar Datos a la Tabla: <%= tableName %> en la BD <%= dbName %></h1>
+  <form action="/agregar-datos" method="POST" id="aggDatos">
+    <input type="hidden" name="dbName" value="<%= dbName %>">
+    <input type="hidden" name="tableName" value="<%= tableName %>">
+    <% columns.forEach(column => { %>
+      <label for="<%= column %>"><%= column %>:</label>
+      <input type="text" id="<%= column %>" name="data[<%= column %>]" required>
+      <br>
+    <% }) %>
+    <button type="submit">Agregar Datos</button>
+    <a href="/ver-tabla?dbName=<%= dbName %>&tableName=<%= tableName %>" class="back-button">Volver a Tablas</a>
+  </form>
+</main>
+  <script>
+    document.getElementById('aggDatos').addEventListener('submit', function(event) {
+      const inputs = event.target.querySelectorAll('input[type="text"], input[type="email"]');
+      let isValid = true;
+      let errorMessage = '';
+
+      inputs.forEach(input => {
+        const value = input.value.trim();
+        const id = input.id;
+
+      });
+      if (!isValid) {
+        event.preventDefault();
+        alert(errorMessage);
+      }
+    });
+  </script>
+</body>
+</html>

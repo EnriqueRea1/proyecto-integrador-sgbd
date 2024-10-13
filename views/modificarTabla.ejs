@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Modificar Tabla: <%= tableName %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/imagenes/db.ico">
+</head>
+<body>
+  <main>
+  <h1>Modificar Tabla: <%= tableName %></h1>
+  <form action="/agregar-campo" method="POST" class="modTabla">
+    <input type="hidden" name="dbName" value="<%= dbName %>">
+    <input type="hidden" name="tableName" value="<%= tableName %>">
+    <h2>Agregar Campo Campo a tu Tabla</h2>
+    <input type="text" id="campoNombre" name="campoNombre" required placeholder="Nombre del campo">
+    <select id="campoTipo" name="campoTipo" required>
+        <option value="INT">INT</option>
+        <option value="DOUBLE">DOUBLE</option>
+        <option value="TEXT">TEXT</option>
+    </select>
+    <button type="submit">AGREGAR</button>
+  </form>
+
+  <form action="/borrar-campo" method="POST" class="modTabla">
+    <input type="hidden" name="dbName" value="<%= dbName %>">
+    <input type="hidden" name="tableName" value="<%= tableName %>">
+    <h2>Eliminar Campo de tu Tabla</h2>
+    <select id="campoEliminar" name="campoNombre" required>
+      <% columns.forEach(column => { %>
+        <% if (column.Key !== 'PRI') { %>
+          <option value="<%= column.Field %>"><%= column.Field %></option>
+        <% } %>
+      <% }); %>
+    </select>
+    <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este campo?');">ELIMINAR</button>
+  </form>
+
+  <form action="/ver-db" method="GET" class="modTabla1">
+    <input type="hidden" name="dbName" value="<%= dbName %>">
+    <button type="submit">Volver a la Lista de Tablas</button>
+  </form>
+</main>
+  <script src="/js/script.js"></script>
+</body>
+</html>

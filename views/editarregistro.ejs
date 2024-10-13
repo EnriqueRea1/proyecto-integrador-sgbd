@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <main>
+  <meta charset="UTF-8">
+  <title>Editar Registro en <%= tableName %> en <%= dbName %></title>
+  <link rel="icon" href="/imagenes/db.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>Editar Registro en <%= tableName %> en <%= dbName %></h1>
+  <form action="/actualizar-registro" method="POST" id="editarR">
+    <input type="hidden" name="dbName" value="<%= dbName %>">
+    <input type="hidden" name="tableName" value="<%= tableName %>">
+    <input type="hidden" name="id" value="<%= record.id %>">
+    <% Object.keys(record).forEach(key => { %>
+      <% if (key !== 'id') { %>
+        <label for="<%= key %>"><%= key %>:</label>
+        <input type="text" name="<%= key %>" id="<%= key %>" value="<%= record[key] %>">
+        <br>
+      <% } %>
+    <% }) %>
+    <button type="submit">Actualizar</button>
+  </form>
+  <a href="/ver-tabla?dbName=<%= dbName %>&tableName=<%= tableName %>"><button type="button">Volver a la tabla</button></a>
+
+</main>
+</body>
+</html>

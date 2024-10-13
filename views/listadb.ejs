@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Bases de Datos</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/imagenes/db.ico">
+</head>
+<body>
+  <p>  <% if (user.rol === 'admin') { %>
+    Ingresaste como administrador
+  <% } else if (user.rol === 'user') { %>
+    Ingresaste como usuario básico
+  <% } %> (Cierra sesión al final de la página)</p>
+
+  <h1>Tus Bases de Datos</h1>
+  <% if (user && user.rol === 'admin') { %>
+    <form action="/crear-db" method="POST" id="nuevaBD">
+      <label for="dbName">Ingresa el nombre de tu nueva base de datos</label>
+      <input type="text" id="dbName" name="dbName" required>
+      <button type="submit">CREAR</button>
+    </form>
+  <% } %>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Operaciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% databases.forEach(database => { %>
+        <tr>
+          <td><%= database.Database %></td>
+          <td>
+            <div class="action-buttons">
+            <form action="/ver-db" method="GET" style="display:inline;">
+              <input type="hidden" name="dbName" value="<%= database.Database %>">
+              <button type="submit">Ver</button>
+            </form>
+            <% if (user && user.rol === 'admin') { %>
+              <form action="/borrar-db" method="POST" style="display:inline;">
+                <input type="hidden" name="dbName" value="<%= database.Database %>">
+                <button type="submit" onclick="return confirm('¿Estás seguro de que deseas borrar esta base de datos?');">Borrar</button>
+              </form>
+            <% } %>
+            </div>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <a href="/logout" class="logout-button">Cerrar sesión</a>
+</body>
+</html>

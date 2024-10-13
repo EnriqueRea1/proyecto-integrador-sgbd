@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contenido de la Base de Datos: <%= dbName %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/imagenes/db.ico">
+</head>
+<body>
+<main>
+  <h1>Tablas en la Base de Datos: <%= dbName %></h1>
+  <a href="/bases-de-datos" class="back-button">Volver a la Lista de Bases de Datos</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre de la Tabla</th>
+        <% if (user && user.rol === 'admin') { %>
+          <th>Operaciones</th>
+        <% } %>
+      </tr>
+    </thead>
+    <tbody>
+      <% tables.forEach(table => { %>
+        <tr>
+          <td><%= table[`Tables_in_${dbName}`] %></td>
+            <td>
+              <form action="/ver-tabla" method="GET" style="display:inline;">
+                <input type="hidden" name="dbName" value="<%= dbName %>">
+                <input type="hidden" name="tableName" value="<%= table[`Tables_in_${dbName}`] %>">
+                <button type="submit">Ver</button>
+              </form>
+              <% if (user && user.rol === 'admin') { %>
+              <form action="/borrar-tabla" method="POST" style="display:inline;">
+                <input type="hidden" name="dbName" value="<%= dbName %>">
+                <input type="hidden" name="tableName" value="<%= table[`Tables_in_${dbName}`] %>">
+                <button type="submit" onclick="return confirm('¿Estás seguro de que deseas borrar esta tabla?');">Borrar</button>
+              </form>
+              <form action="/modificar-tabla" method="GET" style="display:inline;">
+                <input type="hidden" name="dbName" value="<%= dbName %>">
+                <input type="hidden" name="tableName" value="<%= table[`Tables_in_${dbName}`] %>">
+                <button type="submit">Modificar Campos</button>
+              </form>
+            </td>
+          <% } %>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <% if (user && user.rol === 'admin') { %>
+      <form action="/agregar-tabla" method="GET" style="display:inline;">
+      <input type="hidden" name="dbName" value="<%= dbName %>">
+      <button type="submit">Agregar Tabla</button>
+    </form>
+  <% } %>
+</main>
+</body>
+</html>

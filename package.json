@@ -1,0 +1,23 @@
+{
+  "name": "sgbd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Gerardo Cruz Gudiño",
+  "license": "ISC",
+  "description": "Sistema Gestor de Base de Datos",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.11.0",
+    "nodemon": "^3.1.4"
+  }
+}
